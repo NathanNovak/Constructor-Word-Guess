@@ -5,21 +5,24 @@ var Word = function(word){
     this.letterArr = [],
     this.underscoreArr = [],
     this.wordSplitter = function(){
+
+        //need to take the new word and split the letters up
         var splitWord =word.split("");
         console.log(splitWord);
-        var underscore = splitWord.length;
+        
+        // var underscore = splitWord.length;
+        // console.log(underscore);
+
+        for (var i = 0; i<splitWord.length; i++) {
+           
+            this.underscoreArr.push("_ ");         
+        }
         console.log(this.underscoreArr.join(" "));
 
-        for (var i = 0; i<underscore.length; i++) {
-           
-            this.underscoreArr.push("_ ");
-            
 
-        }
-        console.log('hello');
     }
 }
 
-var word1 = new Word('cat');
+var word1 = new Word('baseball');
 
 word1.wordSplitter();
