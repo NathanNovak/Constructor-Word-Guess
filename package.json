@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NathanNovak/Constructor-Word-Guess#readme",
   "dependencies": {
+    "figlet": "^1.2.0",
     "inquirer": "^6.0.0",
     "request": "^2.87.0"
   }

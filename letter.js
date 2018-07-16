@@ -1,11 +1,10 @@
 
-
 function Letter(letter) {
   this.letter = letter.toUpperCase();
   this.isGuessedLetter = false;
-  this.letterGuessedCorrectly = function () {
 
-    //check the guessed letter is an acutual lettre. Return this.letter or "_"
+    //check if guessed letter is an acutual letter. Return this.letter or "_"
+    this.letterGuessedCorrectly = function () {
     if (this.isGuessedLetter) {
       return this.letter;
     }
@@ -18,7 +17,7 @@ function Letter(letter) {
     // console.log(character);
     // console.log("correct letter", this.letter);
 
-    //check to see if letter is displayed
+    //checks to see if letter from user and guessed letter match.
     if (this.letter === character.toUpperCase()) {
       this.isGuessedLetter = true;
       // console.log("isGuessedLetter:", this.isGuessedLetter);
@@ -26,15 +25,17 @@ function Letter(letter) {
     }
     else {
       this.isGuessedLetter = false;
+     
       // console.log('letter not guessed correctly');
     }
   };
 }
 
-// var guess = new Letter("a");
-// guess.guessed("a");
 
-// console.log(guess.isGuessedLetter);
+// var guess = new Letter("a");
+// guess.guessed("k");
+
+// // console.log(guess.isGuessedLetter);
 
 // var letterGuessed = guess.letterGuessedCorrectly();
 // console.log(letterGuessed);
