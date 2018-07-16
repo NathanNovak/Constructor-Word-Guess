@@ -80,7 +80,7 @@ function getLetter() {
           console.log("\nYou Win", name + "!\n");
           playAgain();
         } else if (guessesLeft === 0) {
-          console.log("\nSorry,", name + ",You Lose :(...\n");
+          console.log("\nSorry,", name + ", You Lose :(...\n");
           playAgain();
         } else {
           getLetter();
