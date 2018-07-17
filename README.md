@@ -23,7 +23,9 @@ Welcome to the special ThunderCats Edition of Word Guess!
 - Guess a letter when asked. If letter is correct then guess again. If letter is incorrect a one guess is taken away from Guesses Left.  
 - If you complete the word before Guesses Left is 0 then you win! 
 
-- Remember...
+- And remember...
+
+
 
 ![](https://github.com/NathanNovak/Constructor-Word-Guess/blob/master/thunde.png)
 
