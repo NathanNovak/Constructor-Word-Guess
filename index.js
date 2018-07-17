@@ -140,7 +140,7 @@ function playAgain() {
         newWord();
         getLetter();
       } else {
-        console.log("\nLater", name + "! Come Again!\n");
+        console.log("\nLater", name + "! Come Again, and\n THUNDERCATS HOOOOOOOOOO!!!");
         intro();
       }
     });
