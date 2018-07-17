@@ -4,6 +4,13 @@ var figlet = require("figlet");
 var colors = require("colors");
 var boxen  = require("boxen");
 
+
+// var word1 = new Word('Nate dogg is the best');
+
+// word1.wordSplitter();
+// word1.guessLetter('o');
+// word1.guessLetter('g');
+
 var selectWord = [
   "Jaga",
   "Pumyra",
@@ -17,23 +24,28 @@ var selectWord = [
   "WilyKit"
 ];
 
-var guessesLeft;
+
+// var guessesLeft = 10;
 var selectedWord = "";
 var wordChoice;
-var wins;
-var losses;
+var wins = 0;
+var losses = 0;
 var lettersGuessed = [];
 var name = "";
 
+
 intro();
 
-//gets a new word from the array
 function newWord() {
   for (var i = 0; i < selectWord.length; i++) {
     selectedWord = selectWord[Math.floor(Math.random() * selectWord.length)];
+    // console.log(selectedWord);
     wordChoice = new Word(selectedWord);
+
+    // console.log("This is the word:", wordChoice);
   }
   wordChoice.wordSplitter();
+  //console.log("Word contains", selectedWord.length, "letters.")
 }
 
 function getLetter() {
@@ -61,7 +73,7 @@ function getLetter() {
         console.log("\n\nGUESSES LEFT:".bold.red, guessesLeft);
 
         if (wordChoice.isWordComplete === true) {
-          console.log("\nGuessed Word:", wordChoice.word+"!");
+          console.log("\nGuessed Word:", wordChoice.word);
           console.log("\nYou Win".green, name + "!\n".bold);
           wins++;
           console.log("\nWINS:".green, wins);
@@ -83,7 +95,10 @@ function getLetter() {
       } else {
         console.log("\nWell", letter, "has been guessed already. Guess again", name+"!");
         getLetter();
-      } 
+      }
+
+      
+     
     });
 }
 
@@ -107,7 +122,7 @@ function intro() {
       ])
       .then(function(intro) {
         name = intro.name.toUpperCase();
-        console.log("Hello".bold, name +"! Let's play!".bold);
+        console.log("Hello".bold, name, "! Let's play!".bold);
 
         startGame();
         getLetter();
@@ -117,7 +132,7 @@ function intro() {
 
 function startGame() {
   newWord();
-  guessesLeft = 10;
+  guessesLeft = 2;
   wins = 0;
   losses = 0;
   lettersGuessed = [];
@@ -135,7 +150,7 @@ function playAgain() {
     ])
     .then(function(replay) {
       if (replay.playAgain === true) {
-        guessesLeft = 10;
+        guessesLeft = 2;
         lettersGuessed = [];
         newWord();
         getLetter();
