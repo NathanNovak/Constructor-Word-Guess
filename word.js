@@ -12,9 +12,9 @@ function Word(word) {
     var splitWord = word.split("");
     console.log(splitWord);
 
+    //loops through the letters in the word and inserts a " ", "-", or "_" where it is in the word.
     for (var i = 0; i < splitWord.length; i++) {
       this.letterArr[i] = new Letter(splitWord[i]);
-      // this.letterArr.push(new Letter(splitWord[i]));
       if (splitWord[i] === " ") {
         this.letterStateArr.push(" ");
       }
@@ -37,7 +37,7 @@ function Word(word) {
     // console.log("letter guessing:", character);
     for (var i = 0; i < this.letterArr.length; i++) {
       // console.log("LetterState: ", i, this.letterStateArr[i]);
-      // console.log(this.letterArr[i]);
+      // console.log(this.letterArr[i].letter);
 
       if ("_" === this.letterStateArr[i]) {
           
@@ -59,8 +59,8 @@ function Word(word) {
       this.isWordComplete = true
       console.log("Completed word:", this.isWordComplete);
     } 
-    console.log(this.letterStateArr.join(" "));
-    console.log("Correct Letter:", isCorrectLetter);
+    console.log("\n", this.letterStateArr.join(" "), "\n");
+    // console.log("Correct Letter:", isCorrectLetter);
     return isCorrectLetter;
   };
 }

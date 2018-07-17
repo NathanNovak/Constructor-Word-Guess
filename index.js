@@ -1,6 +1,9 @@
 var Word = require("./word.js");
 var inquirer = require("inquirer");
 var figlet = require("figlet");
+var colors = require("colors");
+var boxen  = require("boxen");
+
 
 // var word1 = new Word('Nate dogg is the best');
 
@@ -8,22 +11,21 @@ var figlet = require("figlet");
 // word1.guessLetter('o');
 // word1.guessLetter('g');
 
-// var selectWord = [
-//   "Jaga",
-//   "Pumyra",
-//   "Cheetara",
-//   "Tygra",
-//   "Snarf",
-//   "Lion-O",
-//   "WilyKat",
-//   "Panthro",
-//   "Grune",
-//   "WilyKit"
-// ];
+var selectWord = [
+  "Jaga",
+  "Pumyra",
+  "Cheetara",
+  "Tygra",
+  "Snarf",
+  "Lion-O",
+  "WilyKat",
+  "Panthro",
+  "Grune",
+  "WilyKit"
+];
 
-var selectWord = ["cat", "dog"];
 
-var guesses = 10;
+// var guessesLeft = 10;
 var selectedWord = "";
 var wordChoice;
 // var count = 0;
@@ -62,7 +64,6 @@ function getLetter() {
     ])
     .then(function(questions) {
       var letter = questions.letter.toUpperCase();
-      // console.log(letter);
 
       // checks to see if letter has been guessed. If it has not then push to lettersGuessed.
       if (lettersGuessed.indexOf(letter) === -1) {
@@ -72,21 +73,26 @@ function getLetter() {
           guessesLeft--;
         }
 
-        // console.log(lettersGuessed);
-        console.log("GUESSES LEFT:", guessesLeft);
+        console.log(boxen("Here are the letters guessed", {borderStyle: 'round', borderColor: 'magenta'}));
+        console.log(lettersGuessed.join(" "));
+        console.log("\n\nGUESSES LEFT:".bold.red, guessesLeft);
 
         if (wordChoice.isWordComplete === true) {
           console.log("\nGuessed Word:", wordChoice.word);
-          console.log("\nYou Win", name + "!\n");
+          console.log("\nYou Win".green, name + "!\n".bold);
+
           playAgain();
+  
         } else if (guessesLeft === 0) {
-          console.log("\nSorry,", name + ", You Lose :(...\n");
+          console.log("\nSorry,", name + ",You Lose :(...\n");
+
           playAgain();
+
         } else {
           getLetter();
         }
       } else {
-        console.log("Well", name, ",...", letter, "has been guessed already.");
+        console.log("Well", name, "...", letter, "has been guessed already.");
         getLetter();
       }
     });
@@ -112,7 +118,7 @@ function intro() {
       ])
       .then(function(intro) {
         name = intro.name.toUpperCase();
-        console.log("Hello", name, "! Let's play!");
+        console.log("Hello".bold, name, "! Let's play!".bold);
 
         startGame();
         getLetter();
