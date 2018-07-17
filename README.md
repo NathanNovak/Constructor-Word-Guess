@@ -25,10 +25,7 @@ Welcome to the special ThunderCats Edition of Word Guess!
 
 - Remember...
 
-
-![alt text] (https://raw.githubusercontent.com/NathanNovak/Constructor-Word-Guess/master/thunde.png)
-
-
+![](https://github.com/NathanNovak/Constructor-Word-Guess/blob/master/thunde.png)
 
 # THUNDERCATS.....HOOOOOOOOOOOOOOO!!!!!!
 
